@@ -12,7 +12,8 @@ function DeleteBooks() {
   const handleDeleteBook =()=>{
     setLoading(true);
     axios
-    .delete(`http://localhost:5555/books/${id}`)
+    // .delete(`http://localhost:5555/books/${id}`)
+    .delete(`http://book-store-api-beige.vercel.app/books/${id}`)
     .then((res)=>{
       setLoading(false);
       // alert("Successfully deleted book")

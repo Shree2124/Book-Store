@@ -9,14 +9,20 @@ import cors from "cors"
 const app = express();
 const Port = PORT || 3000;
 
-app.use(express.json({ limit: "16kb" }));
+app.use(express.json());
 // app.use(cors({
 //   origin: "http://localhost:5173",
-//   methods: ['GET', 'POST', 'PUT', 'DELET'],
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //   allowedHeaders: ['Contenet-Type'],
 // }));
 
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: ['https://deploy-mern-1whq.vercel.app'],
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true
+}))
 app.use('/books',booksRoutes);
 
 app.get("/", (req, res) => {
