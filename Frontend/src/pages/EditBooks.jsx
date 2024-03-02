@@ -12,25 +12,21 @@ function EditBooks() {
   const navigate = useNavigate();
   const { id } = useParams();
   const { enqueueSnackbar } = useSnackbar()
-  useEffect(()=>{
+  useEffect(() => {
     setLoading(true);
-    axios
-    // .get(`http://localhost:5555/books/${id}`)
-    .get(`https://book-store-api-beige.vercel.app/books/${id}`)
-    .then((res)=>{
-      setAuthor(res.data.author)
-      setPublishYear(res.data.publishYear);
-      setTitle(res.data.title);
-      enqueueSnackbar('Book Edited Successfully', { variant: 'success' });
-      setLoading(false);
-    })
-    .catch((err)=>{
-      setLoading(false);
-      // alert("An error happen please check console")
-      enqueueSnackbar('Error', { variant: 'error' });
-      console.log(err);
-    })
-  },[])
+    axios.get(`http://localhost:5555/books/${id}`)
+    .then((response) => {
+        setAuthor(response.data.author);
+        setPublishYear(response.data.publishYear)
+        setTitle(response.data.title)
+        setLoading(false);
+      }).catch((error) => {
+        setLoading(false);
+        alert('An error happened. Please Chack console');
+        console.log(error);
+      });
+  }, [])
+  
   const handleEditBook = () => {
     const data = {
       title,
@@ -42,13 +38,13 @@ function EditBooks() {
       .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
-        // enqueueSnackbar('Book Created successfully', { variant: 'success' });
+        enqueueSnackbar('Book Edited successfully', { variant: 'success' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
         // alert('An error happened. Please Chack console');
-        // enqueueSnackbar('Error', { variant: 'error' });
+        enqueueSnackbar('Error', { variant: 'error' });
         console.log(error);
       });
   };
