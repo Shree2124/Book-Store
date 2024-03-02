@@ -3,6 +3,7 @@ import axios from "axios"
 import { useNavigate, useParams } from 'react-router-dom'
 import {Spinner, BackBtn} from "../components/index.js"
 import { useSnackbar } from 'notistack'
+import dayjs from 'dayjs'
 
 function EditBooks() {
   const [title, setTitle] = useState('')
@@ -17,7 +18,7 @@ function EditBooks() {
     axios.get(`https://book-store-api-beige.vercel.app/books/${id}`)
     .then((response) => {
         setAuthor(response.data.author);
-        setPublishYear(response.data.publishYear)
+        setPublishYear(dayjs(response.data.publishYear).format('DD MM, YYYY'))
         setTitle(response.data.title)
         setLoading(false);
       }).catch((error) => {
