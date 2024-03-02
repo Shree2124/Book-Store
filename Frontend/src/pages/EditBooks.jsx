@@ -16,7 +16,7 @@ function EditBooks() {
     setLoading(true);
     axios
     // .get(`http://localhost:5555/books/${id}`)
-    .get(`http://book-store-api-beige.vercel.app/books/${id}`)
+    .get(`https://book-store-api-beige.vercel.app/books/${id}`)
     .then((res)=>{
       setAuthor(res.data.author)
       setPublishYear(res.data.publishYear);
