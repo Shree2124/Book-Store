@@ -15,6 +15,7 @@ function Home() {
       .get("https://book-store-api-beige.vercel.app/books")
       .then((res) => {
         setBooks(res.data.data);
+        console.log(res);
         setLoading(false);
       })
       .catch((err) => {
