@@ -14,6 +14,7 @@ const ShowBook = () => {
       .get(`https://book-store-api-beige.vercel.app/books/${id}`)
       .then((response) => {
         setBook(response.data);
+        console.log(new Intel.DateTimeFormat('en-Us',{year: 'numeric', month: 'long', day: 'numeric'}).format(new Date(book.createdAt)));
         setLoading(false);
       })
       .catch((error) => {
