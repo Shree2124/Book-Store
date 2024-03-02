@@ -19,7 +19,7 @@ app.use(express.json());
 // app.use(cors());
 
 app.use(cors({
-  origin: ['https://book-store-frontend-rho-two.vercel.app/'],
+  origin: ['https://book-store-frontend-rho-two.vercel.app'],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true
 }))
@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 
 
 app.listen(Port, () => {
-  console.log(` serve at http://localhost:${Port}`);
+  console.log(`serve at http://localhost:${Port}`);
 });
 
 mongoose
