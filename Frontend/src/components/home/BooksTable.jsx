@@ -35,7 +35,7 @@ function BooksTable({books}) {
               </td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
                 {/* {dayjs(book.publishYear)} */
-                  new Date(book.publishYear).toTimeString()
+                  new Date(book.publishYear).toString()
                 }
               </td>
               <td className='border border-slate-700 rounded-md text-center'>
