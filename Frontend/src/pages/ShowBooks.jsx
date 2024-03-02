@@ -15,8 +15,6 @@ const ShowBook = () => {
       .get(`https://book-store-api-beige.vercel.app/books/${id}`)
       .then((response) => {
         setBook(response.data);
-        const date = new Intel.DateTimeFormat('en-Us',{year: 'numeric', month: 'long', day: 'numeric'}).format(new Date(book.createdAt));
-        console.log(date);
         setLoading(false);
       })
       .catch((error) => {
@@ -48,16 +46,16 @@ const ShowBook = () => {
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Publish Year</span>
             <span>{
-              new Date(book.publishYear).toString()
+              dayjs(book.publishYear).format('DD MM, YYYY')
             }</span>
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Create Time</span>
-            <span>{new Date(book.createdAt).toString()}</span>
+            <span>{dayjs(book.createdAt).format('DD MM, YYYY')}</span>
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-            <span>{new Date(book.updatedAt).toString()}</span>
+            <span>{dayjs(book.updatedAt).format('DD MM, YYYY')}</span>
           </div>
         </div>
       )}

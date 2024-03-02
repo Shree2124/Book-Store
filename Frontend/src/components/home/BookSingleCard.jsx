@@ -14,9 +14,9 @@ const BookSingleCard = ({ book }) => {
   return (
     <div className='border-2 border-gray-500 rounded-lg px-4 py-2 m-4 relative hover:shadow-xl'>
         <h4 className='my-2 text-gray-500 w-full'>{book._id}</h4>
-      <h2 className='right-2 px-4 py-1 bg-red-300 rounded-lg'>
+      <h2 className='absolute top-1 right-2 px-4 py-1 bg-red-300 rounded-lg'>
         {/* {dayjs(book.publishYear).toISOString} */
-          new Date(book.publishYear).toString()
+          dayjs(book.publishYear).format('DD MM, YYYY')
         }
       </h2>
       <div className='flex justify-start items-center gap-x-2'>
