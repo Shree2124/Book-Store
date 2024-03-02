@@ -17,7 +17,7 @@ const BookModal = ({ book, onClose }) => {
           onClick={onClose}
         />
         <h2 className='w-fit px-4 py-1 bg-red-300 rounded-lg'>
-          {book.publishYear}
+          {dayjs(book.publishYear)}
         </h2>
         <h4 className='my-2 text-gray-500'>{book._id}</h4>
         <div className='flex justify-start items-center gap-x-2'>

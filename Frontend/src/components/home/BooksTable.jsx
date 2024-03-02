@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
+import dayjs from "dayjs"
 
 function BooksTable({books}) {
   return (
@@ -33,7 +34,7 @@ function BooksTable({books}) {
                 {book.author}
               </td>
               <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
-                {new Date(book.publishYear).toString()}
+                {dayjs(book.publishYear)}
               </td>
               <td className='border border-slate-700 rounded-md text-center'>
                 <div className='flex justify-center gap-x-4'>

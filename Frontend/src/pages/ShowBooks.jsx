@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {BackBtn, Spinner} from "../components/index.js"
+import dayjs from "dayjs"
 
 const ShowBook = () => {
   const [book, setBook] = useState({});
@@ -50,11 +51,11 @@ const ShowBook = () => {
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Create Time</span>
-            <span>{new Intel.DateTimeFormat('en-Us',{year: 'numeric', month: 'long', day: 'numeric'}).format(new Date(book.createdAt))}</span>
+            <span>{dayjs(book.createdAt)}</span>
           </div>
           <div className='my-4'>
             <span className='text-xl mr-4 text-gray-500'>Last Update Time</span>
-            <span>{new Date(book.updatedAt).toString()}</span>
+            <span>{dayjs(book.updatedAt)}</span>
           </div>
         </div>
       )}
