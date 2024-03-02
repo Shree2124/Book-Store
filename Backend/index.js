@@ -10,11 +10,13 @@ const app = express();
 const Port = PORT || 3000;
 
 app.use(express.json({ limit: "16kb" }));
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ['GET', 'POST', 'PUT', 'DELET'],
-  allowedHeaders: ['Contenet-Type'],
-}));
+// app.use(cors({
+//   origin: "http://localhost:5173",
+//   methods: ['GET', 'POST', 'PUT', 'DELET'],
+//   allowedHeaders: ['Contenet-Type'],
+// }));
+
+app.use(cors());
 app.use('/books',booksRoutes);
 
 app.get("/", (req, res) => {
