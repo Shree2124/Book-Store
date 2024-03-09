@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(cors({
   origin: ['https://book-store-frontend-rho-two.vercel.app','http://localhost:5173'],
   methods: ["POST", "GET", "PUT", "DELETE"],
+  preflightContinue: false,
   credentials: true
 }))
 app.use('/books',booksRoutes);
